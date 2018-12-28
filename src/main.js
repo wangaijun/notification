@@ -6,6 +6,10 @@ import VueRouter from 'vue-router'
 import App from './App'
 import Home from './components/HelloFromVux'
 
+import {XHeader} from 'vux'
+
+Vue.component('XHeader',XHeader)
+
 Vue.use(VueRouter)
 
 const routes = [{
