@@ -5,14 +5,11 @@ import FastClick from 'fastclick'
 import router from './router'
 import App from './App'
 
-import {XHeader} from 'vux'
+import {XHeader,CellFormPreview,Group} from 'vux'
 
 Vue.component('XHeader',XHeader)
-
-
-
-
-
+Vue.component('CellFormPreview',CellFormPreview)
+Vue.component('Group',Group)
 
 FastClick.attach(document.body)
 
