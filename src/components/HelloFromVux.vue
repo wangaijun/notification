@@ -5,18 +5,18 @@
       <i slot="right" @click="on_plus_btn_click" class="iconfont  icon-jiahao"></i>
     </x-header>
     <div>
-      
-      {{list[0]}}
+      <child :obj = "list[0]"/>
     </div>
   </div>
 </template>
 
 <script>
+import child from '@/components/child.vue'
 import {  } from 'vux'
 
 export default {
   components: {
-    
+    child,
   },
   data () {
     return {
