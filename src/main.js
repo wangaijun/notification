@@ -7,7 +7,7 @@ import App from './App'
 
 import axios from 'axios'
 import VueAxios from 'vue-axios'
-axios.defaults.headers.common['Authorization'] = 'Bearer ' + "cn-caee5b34-aa2d-499e-aee0-6f08d8cd5de6";
+axios.defaults.headers.common['Authorization'] = 'Bearer ' + "cn-d4a313d6-f8a4-4eba-b42e-d23dc20717c4";
 Vue.use(VueAxios, axios)
 Vue.prototype.$axios = axios;
 
