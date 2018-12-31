@@ -10,7 +10,19 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: {
+      "/api": {
+        // target: "http://bim5d-pro-bak-test.glodon.com",
+        target: "http://bim5d-pro-test.glodon.com",
+        // target: "10.1.68.67：8080",
+        changeOrigin: true
+      },
+      "/resources": {
+        // target: "http://bim5d-pro-bak-test.glodon.com",
+        target: "http://bim5d-pro-test.glodon.com",
+          changeOrigin: true
+      }
+    },
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
