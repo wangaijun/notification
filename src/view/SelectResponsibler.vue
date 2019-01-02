@@ -2,6 +2,7 @@
     <div class="root">
         <x-header :left-options="{backText:'',}">
             <span>选择责任人</span>
+            <i slot="right" v-if="mulsel" @click="on_ok_btn_click" class="iconfont  icon-duigou"></i>
         </x-header>
         <Subcon v-for="item in list" :key="item.id" :obj="item" @onchecked="checked"/>
     </div>
@@ -16,10 +17,15 @@ export default {
     },
     data(){
         return {
-            list:[]
+            list:[],
+            mulsel:false,
+            sellist:[],
         }
     },
     mounted () {
+        console.log(this.$route.query.mulsel);
+        this.mulsel = this.$route.query.mulsel
+        console.log(this.mulsel);
         let s = '[{"id":"1580010143400535","name":"广联达建设一局","description":"","type":null,"major":null,"majorName":null,"groupId":2,"orderNo":1,"isDelete":0},{"id":"1581062175331191","name":"广联达勘察设计院","description":"","type":null,"major":null,"majorName":null,"groupId":3,"orderNo":2,"isDelete":0},{"id":"1581062192135033","name":"广联达监理有限公司","description":"","type":null,"major":null,"majorName":null,"groupId":4,"orderNo":3,"isDelete":0},{"id":"1581062207357819","name":"广联达劳务分包1公司","description":"","type":null,"major":null,"majorName":null,"groupId":7,"orderNo":4,"isDelete":0},{"id":"1581062219464573","name":"广联达劳务分包2公司","description":"","type":null,"major":null,"majorName":null,"groupId":7,"orderNo":5,"isDelete":1},{"id":"1581062234637183","name":"广联达专业承包公司","description":"","type":null,"major":null,"majorName":null,"groupId":6,"orderNo":6,"isDelete":0},{"id":"1581577696358326","name":"广联达劳务分包2公司","description":"","type":null,"major":null,"majorName":null,"groupId":7,"orderNo":7,"isDelete":1},{"id":"1581578381132744","name":"广联达劳务分包2公司","description":"","type":null,"major":null,"majorName":null,"groupId":7,"orderNo":8,"isDelete":0},{"id":"1582196587859833","name":"广联达劳务分包3公司","description":"","type":null,"major":null,"majorName":null,"groupId":7,"orderNo":9,"isDelete":0},{"id":"1582196593771387","name":"广联达劳务分包4公司","description":"","type":null,"major":null,"majorName":null,"groupId":7,"orderNo":10,"isDelete":0},{"id":"1582196599639933","name":"广联达劳务分包5公司","description":"","type":null,"major":null,"majorName":null,"groupId":7,"orderNo":11,"isDelete":0},{"id":"1582196607160191","name":"广联达劳务分包6公司","description":"","type":null,"major":null,"majorName":null,"groupId":7,"orderNo":12,"isDelete":0},{"id":"1582196613392257","name":"广联达劳务分包7公司","description":"","type":null,"major":null,"majorName":null,"groupId":7,"orderNo":13,"isDelete":0}]'
         let arr = JSON.parse(s)
         for(let i=0;i<arr.length;i++){
@@ -30,8 +36,20 @@ export default {
     },
     methods:{
         checked(ob){
-            this.$store.commit('setcurObj',ob)
-            this.$router.go(-1)
+            if(this.mulsel){
+                this.sellist.push(ob)
+            }
+            else{
+                this.$store.commit('setcurObj',ob)
+                this.$router.go(-1)
+            }
+        },
+        on_ok_btn_click(){
+            if(this.mulsel) {
+                console.log(this.sellist);
+                this.$store.commit('setparts',this.sellist)
+                this.$router.go(-1)
+            }
         }
     }
 }
