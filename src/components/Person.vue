@@ -1,7 +1,7 @@
 <template>
     <div class="root">
         <flexbox class="item">
-          <flexbox-item>{{obj.userName}}</flexbox-item>
+          <flexbox-item>{{ob.userName}}</flexbox-item>
           <flexbox-item class="right-item"><input type="checkbox"/></flexbox-item>
         </flexbox>
     </div>
@@ -11,7 +11,7 @@
 export default {
     name:'Person',
     props:{
-         obj: {
+         ob: {
             type: Object,
             // 对象或数组默认值必须从一个工厂函数获取
             default: function () {
@@ -29,9 +29,8 @@ export default {
 .item{
     margin-left: 5px;
     margin-right: 5px;
-    margin-top: 1px;
-    width: 92%;
-    padding: 5px 10px 5px 10px;
+    width: 95%;
+    padding: 0px 5px;
     background-color: white;
 }
 .right-item{
