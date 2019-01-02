@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import HelloFromVux from '@/components/HelloFromVux'
 import AddNotification from '@/view/AddNotification'
+import SelectResponsibler from '@/view/SelectResponsibler'
 
 Vue.use(Router)
 
@@ -17,6 +18,11 @@ export default new Router({
       path: '/AddNotification',
       name:'AddNotification',
       component:AddNotification,
+    },
+    {
+      path: '/SelectResponsibler',
+      name:'SelectResponsibler',
+      component:SelectResponsibler,
     }
   ]
 })

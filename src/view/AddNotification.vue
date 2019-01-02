@@ -28,7 +28,7 @@
 
             <flexbox class="item">
               <flexbox-item >责任人</flexbox-item>
-              <flexbox-item class="item-right">{{obj.responsibleName}}<i @click="on_plus_btn_click" class="iconfont  icon-iconfontjiantou5"></i></flexbox-item>
+              <flexbox-item class="item-right">{{obj.responsibleName}}<i @click="on_res_btn_click" class="iconfont  icon-iconfontjiantou5"></i></flexbox-item>
             </flexbox>
 
             <flexbox class="item">
@@ -68,6 +68,10 @@ export default {
         datechange(d){
             console.log(d);
             this.obj.noticeDate = moment(d,dateFrm)
+        },
+        on_res_btn_click(){
+            console.log('on click');
+            this.$router.push('/SelectResponsibler')
         },
     },
     computed:{
