@@ -51,9 +51,13 @@
 
 <script>
 import { dateFormat } from 'vux'
+var moment = require('moment')
+let dateFrm = "YYYY-MM-DD HH:mm"
 
 export default {
     name:'AddNotification',
+    components:{
+    },
     methods:{
         on_ok_btn_click(){
             console.log('on click');
@@ -63,11 +67,12 @@ export default {
         },
         datechange(d){
             console.log(d);
-        }
+            this.obj.noticeDate = moment(d,dateFrm)
+        },
     },
     computed:{
         noticeDate(){
-            return dateFormat(new Date(this.obj.noticeDate),'YYYY-MM-DD HH:mm')
+            return moment(this.obj.noticeDate).format(dateFrm)
         }
     },
     data(){
