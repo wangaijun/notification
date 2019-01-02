@@ -1,5 +1,8 @@
 <template>
     <div class="root">
+        <x-header :left-options="{backText:'',}">
+            <span>选择责任人</span>
+        </x-header>
         <person v-for="item in list" :obj="item" :key="item.userId"/>
     </div>
 </template>

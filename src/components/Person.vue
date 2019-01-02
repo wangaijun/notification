@@ -1,6 +1,9 @@
 <template>
     <div class="root">
-        {{obj.userName}}
+        <flexbox class="item">
+          <flexbox-item>{{obj.userName}}</flexbox-item>
+          <flexbox-item class="right-item"><input type="checkbox"/></flexbox-item>
+        </flexbox>
     </div>
 </template>
 
@@ -23,8 +26,16 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.roo{
-
+.item{
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 1px;
+    width: 92%;
+    padding: 5px 10px 5px 10px;
+    background-color: white;
+}
+.right-item{
+    text-align: right;
 }
 </style>
 
