@@ -33,7 +33,7 @@
 
             <flexbox class="item">
               <flexbox-item >分包单位</flexbox-item>
-              <flexbox-item class="item-right">{{obj.subcontractorId}}<i @click="on_plus_btn_click" class="iconfont  icon-iconfontjiantou5"></i></flexbox-item>
+              <flexbox-item class="item-right">{{obj.subcontractorId}}<i @click="on_sub_btn_click" class="iconfont  icon-iconfontjiantou5"></i></flexbox-item>
             </flexbox>
 
             <flexbox class="item">
@@ -74,7 +74,7 @@ export default {
                 noticeDate:1545996992000,
                 noticeId:1583100951398439,
                 noticeType:1,
-                participants:"6298842148508439286",//,6225576885289685719
+                participants:"6298842148508439286,6225576885289685719",
                 remark:"备注",
                 resourceId:null,
                 responsibleId:"6458251148183884119",
@@ -127,6 +127,10 @@ export default {
             // this.$router.push({path:'/SelectResponsibler', query:{type:'part'}})
             this.$router.push(`/SelectResponsibler?mulsel=true`)
         },
+        on_sub_btn_click(){
+            console.log('on click');
+            this.$router.push('/SelectSub')
+        }
     },
     mounted () {
         this.obj.responsibleName = this.$store.state.curObj.userName;
