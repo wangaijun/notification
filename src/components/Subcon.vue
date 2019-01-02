@@ -1,7 +1,7 @@
 <template>
     <div class="root">
           <div>{{obj.name}}</div>
-          <person v-for="item in obj.list" :ob="item" :key="item.id"/>
+          <person v-for="item in obj.list" :ob="item" :key="item.id" @onchecked="checked"/>
     </div>
 </template>
 
@@ -27,6 +27,11 @@ export default {
         }
     },
     mounted(){
+    },
+    methods:{
+        checked(ob){
+            this.$emit('onchecked',ob)
+        }
     }
 }
 </script>

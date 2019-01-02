@@ -3,7 +3,7 @@
         <x-header :left-options="{backText:'',}">
             <span>选择责任人</span>
         </x-header>
-        <Subcon v-for="item in list" :key="item.id" :obj="item"/>
+        <Subcon v-for="item in list" :key="item.id" :obj="item" @onchecked="checked"/>
     </div>
 </template>
 
@@ -27,6 +27,12 @@ export default {
             arr[i].list = JSON.parse(c)
         }
         this.list = arr
+    },
+    methods:{
+        checked(ob){
+            this.$store.commit('setcurObj',ob)
+            this.$router.go(-1)
+        }
     }
 }
 </script>

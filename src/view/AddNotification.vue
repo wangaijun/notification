@@ -38,7 +38,7 @@
 
             <flexbox class="item">
               <flexbox-item >参与人</flexbox-item>
-              <flexbox-item class="item-right">{{obj.participants}}<i @click="on_plus_btn_click" class="iconfont  icon-iconfontjiantou5"></i></flexbox-item>
+              <flexbox-item class="item-right">{{obj.participants}}<i @click="on_part_btn_click" class="iconfont  icon-iconfontjiantou5"></i></flexbox-item>
             </flexbox>
 
             <flexbox class="item" orient="vertical">
@@ -50,6 +50,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import { dateFormat } from 'vux'
 var moment = require('moment')
 let dateFrm = "YYYY-MM-DD HH:mm"
@@ -57,6 +58,36 @@ let dateFrm = "YYYY-MM-DD HH:mm"
 export default {
     name:'AddNotification',
     components:{
+    },
+
+    data(){
+        return{
+            obj:{
+                content:"通知内容",
+                createDate:1545997022000,
+                creatorId: "6458251148183884119",
+                creatorName: "罗少帅",
+                finishRead: 0,
+                isAdd:1,
+                isToAllMember:0,
+                noticeDate:1545996992000,
+                noticeId:1583100951398439,
+                noticeType:1,
+                participants:"6298842148508439286",//,6225576885289685719
+                remark:"备注",
+                resourceId:null,
+                responsibleId:"6458251148183884119",
+                responsibleName:"罗少帅",
+                status:1,
+                subcontractorId:"1581062192135033",
+                updateDate:"1581062192135033",
+            }
+        }
+    },
+    computed:{
+        noticeDate(){
+            return moment(this.obj.noticeDate).format(dateFrm)
+        }
     },
     methods:{
         on_ok_btn_click(){
@@ -73,36 +104,17 @@ export default {
             console.log('on click');
             this.$router.push('/SelectResponsibler')
         },
+        on_part_btn_click(){
+            console.log('on click');
+            this.$router.push({path:'/SelectResponsibler', query:{type:'part'}})
+        },
     },
-    computed:{
-        noticeDate(){
-            return moment(this.obj.noticeDate).format(dateFrm)
-        }
-    },
-    data(){
-        return{
-            obj:{
-                content:"通知内容",
-                createDate:1545997022000,
-                creatorId: "6458251148183884119",
-                creatorName: "罗少帅",
-                finishRead: 0,
-                isAdd:1,
-                isToAllMember:0,
-                noticeDate:1545996992000,
-                noticeId:1583100951398439,
-                noticeType:1,
-                participants:"6298842148508439286,6225576885289685719",
-                remark:"备注",
-                resourceId:null,
-                responsibleId:"6458251148183884119",
-                responsibleName:"罗少帅",
-                status:1,
-                subcontractorId:"1581062192135033",
-                updateDate:"1581062192135033",
-            }
-        }
+    mounted () {
+        this.obj.responsibleName = this.$store.state.curObj.userName;
+        this.obj.responsibleId = this.$store.state.curObj.userId;
     }
+    
+    
 }
 </script>
 

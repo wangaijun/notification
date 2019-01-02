@@ -28,8 +28,8 @@ export default {
     },
     methods:{
         checked(e){
-            console.log(this.ob.userId);
-            console.log(this.ob.userName);
+            // console.log(this.ob);
+            this.$emit('onchecked',this.ob)
         }
     }
 }
