@@ -2,7 +2,7 @@
     <div class="root">
         <flexbox class="item">
           <flexbox-item>{{ob.userName}}</flexbox-item>
-          <flexbox-item class="right-item"><input type="checkbox"/></flexbox-item>
+          <flexbox-item class="right-item"><input type="checkbox" @click="checked"/></flexbox-item>
         </flexbox>
     </div>
 </template>
@@ -20,6 +20,16 @@ export default {
                     userName: '张波',
                 }
             }
+        }
+    },
+    data(){
+        return{
+        }
+    },
+    methods:{
+        checked(e){
+            console.log(this.ob.userId);
+            console.log(this.ob.userName);
         }
     }
 }
