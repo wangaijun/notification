@@ -7,6 +7,7 @@ export const store = new Vuex.Store({
           userName:'卢瑟'
       },
       parts:[],
+      sub:{},
     },
     mutations: {
       setcurObj (state,data) {
@@ -14,6 +15,9 @@ export const store = new Vuex.Store({
       },
       setparts(state,data){
           state.parts = data
+      },
+      setsub(state,data){
+          state.sub = data
       }
     }
   })
