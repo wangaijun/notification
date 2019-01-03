@@ -1,5 +1,5 @@
 <template>
-    <div class="root">
+    <div v-if="item.visible" class="root">
         <flexbox>
           <flexbox-item>{{item.name}}</flexbox-item>
           <flexbox-item class="item-right"><input type="checkbox" @click="checked"/></flexbox-item>
@@ -17,6 +17,7 @@ export default {
                 return{
                     id:'1580010143400535',
                     name:'广联达建设一局',
+                    visible:true,
                 }
             }
         }
