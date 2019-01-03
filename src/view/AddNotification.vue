@@ -2,6 +2,7 @@
     <div>
         <x-header :left-options="{backText:'',}">
             <span>通知</span>
+            <i slot="right" v-if="disDelBtn" @click="on_del_btn_click" class="iconfont  icon-shanchu" style="margin-right:10px;"></i>
             <i slot="right" @click="on_ok_btn_click" class="iconfont  icon-duigou"></i>
         </x-header>
         <div class="content">
@@ -64,6 +65,7 @@ export default {
     data(){
         return{
             obj:{
+                noticeId:null,
                 content:"通知内容",
                 createDate:1545997022000,
                 creatorId: "6458251148183884119",
@@ -76,7 +78,8 @@ export default {
                 responsibleId:"6458251148183884119",
                 status:0,
                 subcontractorId:"1581062192135033",
-            }
+            },
+            disDelBtn:false,
         }
     },
     computed:{
@@ -134,8 +137,22 @@ export default {
                 console.log(error);
             });
         },
-        on_plus_btn_click(){
-            
+        on_del_btn_click(){
+            console.log('on_del_btn_click');
+            this.$axios
+            .post('api/v1/projects/1579013294676606/notice/'+ this.obj.noticeId +'/delete',{})
+            .then(response => {
+                console.log(response);
+                if(response.data.code==0){
+                    this.$router.go(-1)
+                }
+                else{
+                    console.log(response.data.message);
+                }
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
         },
         datechange(d){
             console.log(d);
@@ -169,7 +186,11 @@ export default {
 
         this.obj.subcontractorId = this.$store.state.sub.id
 
-        this.obj = this.$store.state.editNotification
+        // console.log(this.$route.query.type);
+        if(this.$route.query.type=='edit'){
+            this.disDelBtn = true
+            this.obj = this.$store.state.editNotification
+        }
     }
     
     

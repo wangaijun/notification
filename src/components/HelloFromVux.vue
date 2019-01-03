@@ -30,7 +30,7 @@ export default {
     edit(item){
       console.log(item);
       this.$store.commit('setEditNotification',item)
-      this.$router.push('/AddNotification')
+      this.$router.push('/AddNotification?type=edit')
     }
   },
   mounted:function(){
