@@ -39,8 +39,8 @@
 
             <flexbox class="item">
               <flexbox-item :span="2">参与人</flexbox-item>
-              <flexbox-item class="item-right item_gray">{{participantnames}}</flexbox-item>
-              <flexbox-item :span="1" class="item-right"><i @click="on_part_btn_click" class="iconfont  icon-iconfontjiantou5 item_gray"></i></flexbox-item>
+              <flexbox-item :span="9" class="item-right item_gray">{{participantnames}}</flexbox-item>
+              <flexbox-item class="item-right"><i @click="on_part_btn_click" class="iconfont  icon-iconfontjiantou5 item_gray"></i></flexbox-item>
             </flexbox>
 
             <flexbox class="item" orient="vertical">
@@ -218,7 +218,10 @@ export default {
     color:#f00;
 }
 .inputbox{
-    width: 100%;
+    width: 97%;
+    border-color: #bbb;
+    padding: 5px;
+    resize: none;
 }
 .group{
     margin-top:-8px; 
