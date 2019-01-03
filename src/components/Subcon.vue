@@ -1,6 +1,10 @@
 <template>
     <div class="root">
-          <div @click="groupclicked">{{obj.name}}</div>
+          <div @click="groupclicked">
+              <i v-if="disChildren" class="iconfont  icon-sanjiaoxia"></i>
+              <i v-else class="iconfont  icon-sanjiaoyou"></i>
+              {{obj.name}}
+          </div>
           <div v-if="disChildren">
               <person v-for="item in obj.list" :ob="item" :key="item.id" @onchecked="checked"/>
           </div>
