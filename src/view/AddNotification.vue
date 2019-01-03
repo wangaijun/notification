@@ -73,7 +73,7 @@ export default {
                 creatorId: "6458251148183884119",
                 creatorName: "罗少帅",
                 isToAllMember:0,
-                noticeDate:new Date().getTime(),
+                noticeDate:0,
                 noticeType:'1',
                 participants:"6298842148508439286,6225576885289685719",
                 remark:"",
@@ -86,6 +86,7 @@ export default {
     },
     computed:{
         noticeDate(){
+            if(this.obj.noticeDate==0)return ''
             return moment(this.obj.noticeDate).format(dateFrm)
         },
         participantnames(){
@@ -117,12 +118,24 @@ export default {
     },
     methods:{
         on_ok_btn_click(){
-            console.log('on click');
+            let b = this.obj
+            if(!b.content || b.content==""){
+                this.$vux.toast.show({
+                    text: '通知内容是必填项',
+                    type: 'warn',
+                })
+                return
+            }
+            if(!b.noticeDate || b.noticeDate==0){
+                this.$vux.toast.show({
+                    text: '通知时间是必填项',
+                    type: 'warn',
+                })
+                return
+            }
             // let s = '{"content":"通知内容2","createDate":0,"creatorName":"罗少帅","isToAllMember":0,"noticeDate":1546474761857,"noticeType":"1","participants":"6298842148508439286","remark":"备注2","responsibleId":"6225576885289685719","status":"0","subcontractorId":"1581062207357819"}'
             // let b = JSON.parse(s)
-            let b = this.obj
             console.log(JSON.stringify(b));
-            // debugger
             this.$axios
             .post('api/v1/projects/1579013294676606/notice/save'
             ,b)

@@ -12,7 +12,7 @@ axios.defaults.headers.common['Authorization'] = 'Bearer ' + "cn-d4a313d6-f8a4-4
 Vue.use(VueAxios, axios);
 Vue.prototype.$axios = axios;
 
-import {XHeader,CellFormPreview,Cell,Group,Flexbox, FlexboxItem, DatetimeRange, Datetime,Search} from 'vux'
+import {XHeader,CellFormPreview,Cell,Group,Flexbox, FlexboxItem, DatetimeRange, Datetime,Search,ToastPlugin} from 'vux'
 Vue.component('XHeader',XHeader)
 Vue.component('CellFormPreview',CellFormPreview)
 Vue.component('Cell',Cell)
@@ -22,6 +22,7 @@ Vue.component('FlexboxItem',FlexboxItem)
 Vue.component('DatetimeRange',DatetimeRange)
 Vue.component('Datetime',Datetime)
 Vue.component('Search',Search)
+Vue.use(ToastPlugin, {position: 'middle'})
 
 FastClick.attach(document.body)
 
