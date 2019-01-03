@@ -8,8 +8,6 @@
             @on-change="getResult"
             :results="results"
             v-model="value"
-            auto-fixed="false"
-            position="inherit"
             ref="search"></search>
         <Subcon v-for="item in list" :key="item.id" :obj="item" @onchecked="checked"/>
     </div>
