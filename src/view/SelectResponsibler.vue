@@ -4,6 +4,13 @@
             <span>{{title}}</span>
             <i slot="right" v-if="mulsel" @click="on_ok_btn_click" class="iconfont  icon-duigou"></i>
         </x-header>
+        <search 
+            @on-change="getResult"
+            :results="results"
+            v-model="value"
+            auto-fixed="false"
+            position="inherit"
+            ref="search"></search>
         <Subcon v-for="item in list" :key="item.id" :obj="item" @onchecked="checked"/>
     </div>
 </template>
@@ -21,6 +28,9 @@ export default {
             mulsel:false,
             sellist:[],
             title:'',
+
+            results: [],
+            value: ''
         }
     },
     mounted () {
@@ -50,12 +60,30 @@ export default {
                 this.$store.commit('setparts',this.sellist)
                 this.$router.go(-1)
             }
-        }
+        },
+        getResult (val) {
+            console.log('你的搜索关键字是', val)
+
+        },
     }
+}
+function getResult (val) {
+  let rs = []
+  for (let i = 0; i < 20; i++) {
+    rs.push({
+      title: `${val} result: ${i + 1} `,
+      other: i
+    })
+  }
+  return rs
 }
 </script>
 
 <style lang="less" scoped>
+
+.vux-search-fixed {
+    position: relative !important;
+}
 .root{
 
 }
