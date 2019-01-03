@@ -1,7 +1,9 @@
 <template>
     <div class="root">
-          <div>{{obj.name}}</div>
-          <person v-for="item in obj.list" :ob="item" :key="item.id" @onchecked="checked"/>
+          <div @click="groupclicked">{{obj.name}}</div>
+          <div v-if="disChildren">
+              <person v-for="item in obj.list" :ob="item" :key="item.id" @onchecked="checked"/>
+          </div>
     </div>
 </template>
 
@@ -26,11 +28,20 @@ export default {
             }
         }
     },
+    data(){
+        return {
+            disChildren:true
+        }
+    },
     mounted(){
     },
     methods:{
         checked(ob){
             this.$emit('onchecked',ob)
+        },
+        groupclicked(){
+            console.log('groupclicked');
+            this.disChildren = !this.disChildren
         }
     }
 }
