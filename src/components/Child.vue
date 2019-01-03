@@ -17,7 +17,7 @@
 import { dateFormat } from 'vux'
 
 export default {
-    name:"child",
+    name:"Child",
     props:{
         obj: {
             type: Object,

@@ -5,17 +5,17 @@
       <i slot="right" @click="on_plus_btn_click" class="iconfont  icon-jiahao"></i>
     </x-header>
     <div >
-      <child :obj = "item" v-for="item in list" :key="item.id"/>
+      <Child :obj = "item" v-for="item in list" :key="item.id"/>
     </div>
   </div>
 </template>
 
 <script>
-import child from '@/components/child.vue'
+import Child from '@/components/Child.vue'
 
 export default {
   components: {
-    child,
+    Child,
   },
   data () {
     return {
