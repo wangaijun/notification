@@ -19,7 +19,9 @@
              <group title="" class="group">
                 <datetime class="item" :value="noticeDate" format="YYYY-MM-DD HH:mm" 
                 @on-change="datechange"
-                :minute-list="['00', '15', '30', '45']" title="时间"></datetime>
+                :minute-list="['00', '15', '30', '45']">
+                    <div slot="title">时间<span class="reddot">*</span></div>
+                </datetime>
             </group>
 
             <flexbox class="item">
