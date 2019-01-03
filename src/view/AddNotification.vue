@@ -168,6 +168,8 @@ export default {
         this.obj.participants = ids
 
         this.obj.subcontractorId = this.$store.state.sub.id
+
+        this.obj = this.$store.state.editNotification
     }
     
     

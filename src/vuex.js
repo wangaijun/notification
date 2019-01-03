@@ -8,6 +8,7 @@ export const store = new Vuex.Store({
       },
       parts:[],
       sub:{},
+      editNotification:{},
     },
     mutations: {
       setcurObj (state,data) {
@@ -18,6 +19,9 @@ export const store = new Vuex.Store({
       },
       setsub(state,data){
           state.sub = data
+      },
+      setEditNotification(state,data){
+          state.editNotification = data
       }
     }
   })

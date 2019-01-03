@@ -1,5 +1,5 @@
 <template>
-    <div class="root">
+    <div class="root" @click="onclick">
         <flexbox>
             <flexbox-item :span="1/2">
                 <i class="iconfont icon-people people"></i>发布人：{{obj.creatorName}}
@@ -35,6 +35,11 @@ export default {
     computed:{
         date(){
             return dateFormat(new Date(this.obj.noticeDate),'YYYY-MM-DD HH:mm')
+        }
+    },
+    methods:{
+        onclick(){
+            this.$emit('click') 
         }
     }
 }
