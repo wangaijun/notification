@@ -1,7 +1,13 @@
 <template>
-    <div class="root">
-        <div>{{group.name}}</div>
-        <Item v-for="i in group.list" :key="i.id" :item="i" @click="checked"/>
+    <div class="root" @click="onclick">
+        <div>
+            <i v-if="dischildren" class="iconfont  icon-sanjiaoxia"></i>
+            <i v-else class="iconfont  icon-sanjiaoyou"></i>
+            {{group.name}}
+        </div>
+        <div v-if="dischildren">
+            <Item v-for="i in group.list" :key="i.id" :item="i" @click="checked"/>
+        </div>
     </div>
 </template>
 
@@ -24,9 +30,17 @@ export default {
             }
         }
     },
+    data(){
+        return {
+            dischildren:true
+        }
+    },
     methods:{
         checked(sub){
             this.$emit('click',sub)
+        },
+        onclick(){
+            this.dischildren = !this.dischildren
         }
     }
 }
