@@ -1,5 +1,5 @@
 <template>
-    <div class="root">
+    <div v-if="ob.visible" class="root">
         <flexbox class="item">
           <flexbox-item>{{ob.userName}}</flexbox-item>
           <flexbox-item class="right-item"><input type="checkbox" @click="checked"/></flexbox-item>
@@ -18,6 +18,7 @@ export default {
                 return { 
                     userId:'5917242334161117925',
                     userName: '张波',
+                    visible:true,
                 }
             }
         }
