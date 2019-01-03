@@ -8,12 +8,12 @@
         <div class="content">
             <flexbox class="item">
                 <flexbox-item>发布人</flexbox-item>
-                <flexbox-item class="item-right">{{obj.creatorName}}</flexbox-item>
+                <flexbox-item class="item-right item_gray">{{obj.creatorName}}</flexbox-item>
             </flexbox>
 
             <flexbox class="item" orient="vertical">
               <flexbox-item>通知内容<span class="reddot">*</span></flexbox-item>
-              <flexbox-item><textarea rows="3" v-model="obj.content" class="inputbox" placeholder="请输入通知内容"/></flexbox-item>
+              <flexbox-item><textarea rows="3" v-model="obj.content" class="inputbox item_gray" placeholder="请输入通知内容"/></flexbox-item>
             </flexbox>
 
              <group title="" class="group">
@@ -29,23 +29,23 @@
 
             <flexbox class="item">
               <flexbox-item >责任人</flexbox-item>
-              <flexbox-item class="item-right">{{obj.responsibleName}}<i @click="on_res_btn_click" class="iconfont  icon-iconfontjiantou5"></i></flexbox-item>
+              <flexbox-item class="item-right item_gray">{{obj.responsibleName}}<i @click="on_res_btn_click" class="iconfont  icon-iconfontjiantou5"></i></flexbox-item>
             </flexbox>
 
             <flexbox class="item">
               <flexbox-item >分包单位</flexbox-item>
-              <flexbox-item class="item-right">{{subname}}<i @click="on_sub_btn_click" class="iconfont  icon-iconfontjiantou5"></i></flexbox-item>
+              <flexbox-item class="item-right item_gray">{{subname}}<i @click="on_sub_btn_click" class="iconfont  icon-iconfontjiantou5"></i></flexbox-item>
             </flexbox>
 
             <flexbox class="item">
               <flexbox-item :span="2">参与人</flexbox-item>
-              <flexbox-item class="item-right">{{participantnames}}</flexbox-item>
-              <flexbox-item :span="1" class="item-right"><i @click="on_part_btn_click" class="iconfont  icon-iconfontjiantou5"></i></flexbox-item>
+              <flexbox-item class="item-right item_gray">{{participantnames}}</flexbox-item>
+              <flexbox-item :span="1" class="item-right"><i @click="on_part_btn_click" class="iconfont  icon-iconfontjiantou5 item_gray"></i></flexbox-item>
             </flexbox>
 
             <flexbox class="item" orient="vertical">
               <flexbox-item>备注</flexbox-item>
-              <flexbox-item><textarea rows="3" v-model="obj.remark" class="inputbox" placeholder="请输入备注.00"/></flexbox-item>
+              <flexbox-item><textarea rows="3" v-model="obj.remark" class="inputbox item_gray" placeholder="请输入备注"/></flexbox-item>
             </flexbox>
         </div>
     </div>
@@ -66,15 +66,15 @@ export default {
         return{
             obj:{
                 noticeId:null,
-                content:"通知内容",
+                content:"",
                 createDate:1545997022000,
                 creatorId: "6458251148183884119",
                 creatorName: "罗少帅",
                 isToAllMember:0,
-                noticeDate:1545996992000,
+                noticeDate:new Date().getTime(),
                 noticeType:'1',
                 participants:"6298842148508439286,6225576885289685719",
-                remark:"备注",
+                remark:"",
                 responsibleId:"6458251148183884119",
                 status:0,
                 subcontractorId:"1581062192135033",
@@ -210,6 +210,9 @@ export default {
 }
 .item-right{
     text-align: right;
+}
+.item_gray{
+    color:#999;
 }
 .reddot{
     color:#f00;
