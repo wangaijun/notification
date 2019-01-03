@@ -90,7 +90,7 @@ export default {
     position: relative !important;
 }
 .root{
-
+    font-size: 13px;
 }
 </style>
 
