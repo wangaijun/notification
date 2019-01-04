@@ -231,6 +231,7 @@ export default {
 }
 .reddot{
     color:#f00;
+    vertical-align: sub;
 }
 .inputbox{
     width: 97%;
